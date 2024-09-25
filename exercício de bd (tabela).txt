@@ -1,0 +1,45 @@
+create table departamento
+(
+	codigo int primary key,
+	nome varchar(300) not null unique,
+	sigla varchar(300) not null unique,
+	email varchar(300) not null unique,
+	tipo char(1) not null check (tipo = 'A' OR tipo = 'I')
+)
+
+create table funcionario
+(
+	codigo int primary key,
+	cpf varchar(11) not null,
+	id varchar(50) not null,
+	nome varchar(300) not null,
+	datanascimento date not null,
+	coddept int not null,
+	foreign key (coddept) references (departamento (codigo)
+)
+
+insert into departamento values(1, 'Pesquisa', 'IMC', 'felipepe@gmail.com', 'A')
+
+insert into funcionario values(879, '12345678944', '4587', 'Pedro', 21/04/2007, '1'), 
+				(165, '98745632100', '3636', 'Julios', 30/08/1980, '1')
+
+Create Table Usuario (
+	id			int primary key,
+	hash			int not null,
+	permições 		boolean not null
+	nome 			varchar(100) not null,
+	email			varchar(100) not null
+	senha 			varchar(100) not null
+	distancia percorrida	int not null,
+	pontos 			int not null
+);
+
+Create Table Toten (
+	id_Usuario	int primary key,
+	toten 1		boolean not null,
+	toten 2		boolean not null,
+	toten 3		boolean not null,
+	toten 4		boolean not null,
+	toten 5		boolean not null,
+	foreign key (id_Usuario) references (Usuario (id))
+)
